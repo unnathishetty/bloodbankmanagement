@@ -1,0 +1,278 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 02, 2019 at 07:48 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.1.32
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `blooddonation`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bloodstock`
+--
+
+CREATE TABLE `bloodstock` (
+  `h_id` varchar(100) NOT NULL,
+  `op` int(100) NOT NULL,
+  `oneg` int(100) NOT NULL,
+  `ap` int(100) NOT NULL,
+  `an` int(100) NOT NULL,
+  `bp` int(100) NOT NULL,
+  `bn` int(100) NOT NULL,
+  `abp` int(100) NOT NULL,
+  `abn` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bloodstock`
+--
+
+INSERT INTO `bloodstock` (`h_id`, `op`, `oneg`, `ap`, `an`, `bp`, `bn`, `abp`, `abn`) VALUES
+('12343', 1, 221, 211, 212, 12, 21, 2123, 434),
+('54732', 0, 0, 3, 4, 5, 6, 7, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ddonation`
+--
+
+CREATE TABLE `ddonation` (
+  `dd_id` varchar(100) NOT NULL,
+  `d_id` varchar(100) NOT NULL,
+  `dd_name` varchar(100) NOT NULL,
+  `dd_date` date NOT NULL,
+  `d_city` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ddonation`
+--
+
+INSERT INTO `ddonation` (`dd_id`, `d_id`, `dd_name`, `dd_date`, `d_city`) VALUES
+('12242', '73921', 'Blood-DON Camp', '2019-11-05', 'Kolkata'),
+('1234', '73921', 'Blood Donation Camp', '2019-11-21', 'Bangalore');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `donor`
+--
+
+CREATE TABLE `donor` (
+  `d_id` varchar(100) NOT NULL,
+  `d_name` varchar(100) NOT NULL,
+  `d_username` varchar(100) NOT NULL,
+  `d_password` varchar(100) NOT NULL,
+  `d_city` varchar(100) NOT NULL,
+  `d_bloodgroup` varchar(100) NOT NULL,
+  `d_conno` bigint(250) NOT NULL,
+  `d_address` varchar(100) NOT NULL,
+  `d_age` int(50) NOT NULL,
+  `d_gender` varchar(50) NOT NULL,
+  `d_email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `donor`
+--
+
+INSERT INTO `donor` (`d_id`, `d_name`, `d_username`, `d_password`, `d_city`, `d_bloodgroup`, `d_conno`, `d_address`, `d_age`, `d_gender`, `d_email`) VALUES
+('67093', 'Tris Prior', 'Tris06', 'test', 'Bangalore', 'B+ve', 8556414758, 'Indiranagar-56043', 20, 'Female', 'trisprior06@gmail.com'),
+('73921', 'Tobias Eaton', 'tobias04', 'test', 'Delhi', 'O+ve', 9224685571, 'GandhiNagar-57001', 21, 'Male', 'TobiasEaton04@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hospital`
+--
+
+CREATE TABLE `hospital` (
+  `h_id` varchar(100) NOT NULL,
+  `h_name` varchar(100) NOT NULL,
+  `h_username` varchar(100) NOT NULL,
+  `h_password` varchar(100) NOT NULL,
+  `h_email` varchar(100) NOT NULL,
+  `h_city` varchar(100) NOT NULL,
+  `h_address` varchar(100) NOT NULL,
+  `h_contactno` bigint(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `hospital`
+--
+
+INSERT INTO `hospital` (`h_id`, `h_name`, `h_username`, `h_password`, `h_email`, `h_city`, `h_address`, `h_contactno`) VALUES
+('54732', 'Manipal Hospital', 'manipal', 'test', 'manipalhospital@gmail.com', 'Bangalore', 'Karanataka-560036', 806224154);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ndonation`
+--
+
+CREATE TABLE `ndonation` (
+  `nd_id` varchar(100) NOT NULL,
+  `nd_name` varchar(100) NOT NULL,
+  `nd_city` varchar(100) NOT NULL,
+  `nd_fdate` date NOT NULL,
+  `nd_tdate` date NOT NULL,
+  `h_id` varchar(100) NOT NULL,
+  `nd_conno` bigint(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ndonation`
+--
+
+INSERT INTO `ndonation` (`nd_id`, `nd_name`, `nd_city`, `nd_fdate`, `nd_tdate`, `h_id`, `nd_conno`) VALUES
+('12242', 'Blood-DON Camp', 'Kolkata', '2019-11-05', '2019-11-29', '1234', 3231232),
+('1234', 'Blood Donation Camp', 'Bangalore', '2019-11-21', '2019-11-24', '12543', 98854);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reqblood`
+--
+
+CREATE TABLE `reqblood` (
+  `r_id` varchar(100) NOT NULL,
+  `h_id` varchar(100) NOT NULL,
+  `r_pname` varchar(100) NOT NULL,
+  `r_bloodgroup` varchar(100) NOT NULL,
+  `r_quantity` bigint(100) NOT NULL,
+  `r_address` varchar(100) NOT NULL,
+  `r_city` varchar(100) NOT NULL,
+  `r_date` date NOT NULL,
+  `r_conno` bigint(200) NOT NULL,
+  `r_status` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reqblood`
+--
+
+INSERT INTO `reqblood` (`r_id`, `h_id`, `r_pname`, `r_bloodgroup`, `r_quantity`, `r_address`, `r_city`, `r_date`, `r_conno`, `r_status`) VALUES
+('58460', '12221', 'Victor Becham', 'O-ve', 2, 'swdddes', 'Hyderabad', '2019-02-03', 2251725526, 'Accepted'),
+('8391', '12343', 'Vivin Vickor', 'O+ve', 1, 'asdA', 'Guwahati', '2019-01-01', 322241232, 'Accepted');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `searchdonor`
+--
+
+CREATE TABLE `searchdonor` (
+  `s_id` varchar(100) NOT NULL,
+  `d_id` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `searchdonor`
+--
+
+INSERT INTO `searchdonor` (`s_id`, `d_id`, `status`) VALUES
+('2323', '1234', 'Pending..'),
+('54732', '73921', 'Pending..');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `seeker`
+--
+
+CREATE TABLE `seeker` (
+  `se_id` varchar(100) NOT NULL,
+  `se_name` varchar(100) NOT NULL,
+  `se_city` varchar(100) NOT NULL,
+  `se_age` int(50) NOT NULL,
+  `se_gender` varchar(50) NOT NULL,
+  `se_email` varchar(100) NOT NULL,
+  `se_conno` bigint(200) NOT NULL,
+  `se_username` varchar(100) NOT NULL,
+  `se_password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `seeker`
+--
+
+INSERT INTO `seeker` (`se_id`, `se_name`, `se_city`, `se_age`, `se_gender`, `se_email`, `se_conno`, `se_username`, `se_password`) VALUES
+('22321', 'Alex Fin', 'Hyderabad', 33, 'Male', 'alexfin@gmail.com', 9885474412, 'alex123', 'test'),
+('58460', 'Akanksha Shetty', 'Bangalore', 22, 'Female', 'akankshapolineni', 901254, 'test', 'test'),
+('79959', 'Tobias Eaton', 'Delhi', 24, 'M', 'tobiaseaton4@gmail.com', 805471281, 'tobias4', 'dauntless');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `bloodstock`
+--
+ALTER TABLE `bloodstock`
+  ADD PRIMARY KEY (`h_id`);
+
+--
+-- Indexes for table `ddonation`
+--
+ALTER TABLE `ddonation`
+  ADD PRIMARY KEY (`dd_id`);
+
+--
+-- Indexes for table `donor`
+--
+ALTER TABLE `donor`
+  ADD PRIMARY KEY (`d_id`);
+
+--
+-- Indexes for table `hospital`
+--
+ALTER TABLE `hospital`
+  ADD PRIMARY KEY (`h_id`);
+
+--
+-- Indexes for table `ndonation`
+--
+ALTER TABLE `ndonation`
+  ADD PRIMARY KEY (`nd_id`);
+
+--
+-- Indexes for table `reqblood`
+--
+ALTER TABLE `reqblood`
+  ADD PRIMARY KEY (`r_id`);
+
+--
+-- Indexes for table `searchdonor`
+--
+ALTER TABLE `searchdonor`
+  ADD PRIMARY KEY (`s_id`);
+
+--
+-- Indexes for table `seeker`
+--
+ALTER TABLE `seeker`
+  ADD PRIMARY KEY (`se_id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
