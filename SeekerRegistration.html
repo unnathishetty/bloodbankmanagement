@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Seeker Registration</title>
+	<link rel="stylesheet" type="text/css" href="css/DRegister.css">
+</head>
+
+<body>
+	<header><br>
+		<h2>&nbsp&nbsp&nbsp&nbspBLOOD DONATION</h2>
+ <div class="main">
+ 	<ul>
+ 		<li class="active"><a href="SeekerRegistration.html">Login As Seeker</a></li>
+ 		<li><a href="HospitalLogin.html">Hospital Login</a></li>
+ 		<li><a href="DonorLogin.html">Donor Login</a></li>
+ 		<li><a href="SeekerLogin.html">Seeker Login</a></li>
+ 		<li><a href="index.html">Home</a></li>
+ 		<li><a href="ContactPage.html">Contact</a></li>
+ 	</ul>
+</div>
+<br>
+<div class="container">
+     <h1>Register Here!!</h1><br>
+	<form action="SRegister.php" method="POST">
+		<div class="form_input">
+			<input type="text"  name="nam" placeholder="Seeker Name" required><br>
+			<input type="text"  name="un" placeholder="Username" required><br>
+			<input type="password"  name="pas" placeholder="Password" required><br><br>
+			
+            <select name="city"> 
+                <option   value="">City</option>
+		       <option   value="Bangalore">Bangalore</option>
+		       <option   value="Chennai">Chennai</option>
+		       <option   value="Chandigarh">Chandigarh</option>
+		       <option   value="Delhi">Delhi</option>
+               <option   value="Guwahati">Guwahati</option>
+               <option   value="Hyderabad">Hyderabad</option>
+		       <option   value="Kochi">Kochi</option>
+		       <option   value="Kolkata">Kolkata</option>
+		       <option   value="Mangaluru">Mangaluru</option>
+		       <option   value="Mumbai">Mumbai</option>
+		       <option   value="Panaji">Panaji</option>
+		       <option   value="Pune">Pune</option>
+               </select><br>
+			<input type="text"  name="age" placeholder="Age" required><br><br>
+			Gender:
+			<input type="radio" name="gender" value="Male"> Male<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="radio" name="gender" value="Female"> Female<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="radio" name="gender" value="Others"> Other <br><br>
+            <input type="text" name="cn" placeholder="Contact Number" required><br>
+           <input type="text" name="email" placeholder="Email ID" required><br>
+			<input type="submit" name="" value="Submit" ><br><br>
+		</div>
+	</form>
+  </div>
+
+</header>
+</body>
+</html>
