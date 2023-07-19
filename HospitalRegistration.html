@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hospital Registration</title>
+	<link rel="stylesheet" type="text/css" href="css/HRegister.css">
+</head>
+
+<body>
+	<header><br>
+		<h2>&nbsp&nbsp&nbsp&nbspBLOOD DONATION</h2>
+ <div class="main">
+ 	<ul>
+ 		<li class="active"><a href="HospitalRegistration.html">Login As Member</a></li>
+ 		<li><a href="HospitalLogin.html">Hospital Login</a></li>
+ 		<li><a href="DonorLogin.html">Donor Login</a></li>
+ 		<li><a href="SeekerLogin.html">Seeker Login</a></li>
+ 		<li><a href="index.html">Home</a></li>
+ 		<li><a href="ContactPage.html">Contact</a></li>
+ 	</ul>
+</div>
+<br>
+<div class="container">
+     <h1>Register Here!!</h1><br>
+	<form action="newuser.php" method="POST">
+		<div class="form_input">
+			<input  name="hid" type="text" placeholder="Hospital ID..." required><br>
+			<input  name="hn" type="text" placeholder="Hospital Name..." required><br>
+			<input  name="un" type="text" placeholder="Username.." required><br>
+			<input  name="pas" type="password" placeholder="Password.." required><br>
+			<input  name="email" type="text" placeholder="Hospital Email ID..." required><br><br>
+		
+			<select name="city"> 
+                <option   value="">City</option>
+		       <option   value="Bangalore">Bangalore</option>
+		       <option   value="Chennai">Chennai</option>
+		       <option   value="Chandigarh">Chandigarh</option>
+		       <option   value="Delhi">Delhi</option>
+               <option   value="Guwahati">Guwahati</option>
+               <option   value="Hyderabad">Hyderabad</option>
+		       <option   value="Kochi">Kochi</option>
+		       <option   value="Kolkata">Kolkata</option>
+		       <option   value="Mangaluru">Mangaluru</option>
+		       <option   value="Mumbai">Mumbai</option>
+		       <option   value="Panaji">Panaji</option>
+		       <option   value="Pune">Pune</option>
+               </select><br><br>
+			<input  name="cn" type="text" placeholder="Contact Number..." required><br>
+			<input  name="add" type="text" placeholder="Address..." required><br>
+			<input name="sub"  type="submit" value="Submit" ><br><br>
+		</div>
+	</form>
+  
+</header>
+</body>
+</html>
